@@ -1,0 +1,9 @@
+---
+- src: https://github.com/andrewrothstein/ansible-node.git
+  name: andrewrothstein.node
+
+- src: https://github.com/gantsign/ansible-role-golang.git
+  name: gantsign.golang
+
+- src: https://github.com/andrewrothstein/ansible-hugo.git
+  name: andrewrothstein.hugo

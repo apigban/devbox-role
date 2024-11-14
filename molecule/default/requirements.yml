@@ -1,0 +1,8 @@
+---
+collections:
+  - containers.podman
+
+roles:
+  - andrewrothstein.node
+  - gantsign.golang
+  - andrewrothstein.hugo
