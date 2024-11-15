@@ -34,6 +34,7 @@
         src: /opt/dart-sass/dart-sass/sass
         dest: /usr/local/bin/sass
         state: link
+        mode: '0755'
 
     - name: Clean up downloaded archive
       ansible.builtin.file:
