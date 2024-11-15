@@ -82,8 +82,3 @@
 - name: Install nodejs
   ansible.builtin.include_role: 
     name: andrewrothstein.node
-
-- name: Install hugo
-  ansible.builtin.include_role: 
-    name: andrewrothstein.hugo
-
