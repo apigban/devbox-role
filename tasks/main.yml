@@ -28,6 +28,7 @@
         src: /tmp/dart-sass.tar.gz
         dest: /opt/dart-sass
         remote_src: yes
+        mode: '0755'
 
     - name: Create symlink for sass
       ansible.builtin.file:
