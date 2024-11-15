@@ -1,8 +1,25 @@
 ---
+- name: Install EPEL
+  ansible.builtin.dnf:
+    name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
+    state: latest
+
 - name: Upgrade all packages
   ansible.builtin.dnf:
     name: "*"
     state: latest
+
+- name: Install packages
+  ansible.builtin.dnf:
+    name: 
+      - snapd
+    state: latest
+
+- name: Start and enable snapd service
+  ansible.builtin.systemd_service:
+    name: snapd.socket
+    state: started
+    enabled: true
 
 - name: Install golang
   ansible.builtin.include_role: 
