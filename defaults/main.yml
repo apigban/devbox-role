@@ -1,4 +1,4 @@
 ---
 # defaults file for devbox-role
 hugo:
-  version: v0.138.0
+  version: 0.138.0

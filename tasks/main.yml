@@ -3,6 +3,7 @@
   ansible.builtin.dnf:
     name: "https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm"
     state: latest
+    disable_gpg_check: true
 
 - name: Upgrade all packages
   ansible.builtin.dnf:
@@ -15,27 +16,27 @@
       ansible.builtin.file:
         path: /opt/dart-sass
         state: directory
-        mode: '0755'
+        mode: '0775'
 
     - name: Download dart-sass
       ansible.builtin.get_url:
         url: https://github.com/sass/dart-sass/releases/download/1.81.0/dart-sass-1.81.0-linux-x64.tar.gz
         dest: /tmp/dart-sass.tar.gz
-        mode: '0755'
+        mode: '0775'
 
     - name: Extract dart-sass
       ansible.builtin.unarchive:
         src: /tmp/dart-sass.tar.gz
         dest: /opt/dart-sass
         remote_src: yes
-        mode: '0755'
+        mode: '0775'
 
     - name: Create symlink for sass
       ansible.builtin.file:
         src: /opt/dart-sass/dart-sass/sass
         dest: /usr/local/bin/sass
         state: link
-        mode: '0755'
+        mode: '0775'
 
     - name: Clean up downloaded archive
       ansible.builtin.file:

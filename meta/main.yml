@@ -1,6 +1,6 @@
 galaxy_info:
   namespace: apigban
-  role_name: devbox-role
+  role_name: devbox
   author: Alain Pinero Igban
   description: Installs go, node and podman
   company: apigban.com
