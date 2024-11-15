@@ -21,6 +21,11 @@
     state: started
     enabled: true
 
+- name: Install Hugo dependencies
+  community.general.snap:
+    name:
+      - dart-sass
+
 - name: Install golang
   ansible.builtin.include_role: 
     name: gantsign.golang
