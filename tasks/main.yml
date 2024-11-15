@@ -42,6 +42,39 @@
         path: /tmp/dart-sass.tar.gz
         state: absent
 
+- name: Install Hugo
+  block:
+    - name: Create directory for hugo
+      ansible.builtin.file:
+        path: /opt/hugo
+        state: directory
+        mode: '0755'
+
+    - name: Download hugo
+      ansible.builtin.get_url:
+        url: https://github.com/gohugoio/hugo/releases/download/v0.138.0/hugo_extended_0.138.0_Linux-64bit.tar.gz
+        dest: /tmp/hugo.tar.gz
+        mode: '0755'
+
+    - name: Extract dart-sass
+      ansible.builtin.unarchive:
+        src: /tmp/hugo.tar.gz
+        dest: /opt/hugo
+        remote_src: yes
+        mode: '0755'
+
+    - name: Create symlink for sass
+      ansible.builtin.file:
+        src: /opt/hugo/hugo
+        dest: /usr/local/bin/hugo
+        state: link
+        mode: '0755'
+
+    - name: Clean up downloaded archive
+      ansible.builtin.file:
+        path: /tmp/hugo.tar.gz
+        state: absent
+
 - name: Install golang
   ansible.builtin.include_role: 
     name: gantsign.golang
