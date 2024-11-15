@@ -102,4 +102,5 @@
     port: 1313/tcp
     permanent: yes
     state: enabled
+    immediate: true
   become: yes
