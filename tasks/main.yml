@@ -83,3 +83,23 @@
 - name: Install nodejs
   ansible.builtin.include_role: 
     name: andrewrothstein.node
+
+- name: Ensure firewalld is installed
+  ansible.builtin.package:
+    name: firewalld
+    state: present
+  become: yes
+
+- name: Ensure firewalld is running and enabled
+  ansible.builtin.service:
+    name: firewalld
+    state: started
+    enabled: yes
+  become: yes
+
+- name: Allow TCP traffic on port 1313 (Hugo server)
+  ansible.posix.firewalld:
+    port: 1313/tcp
+    permanent: yes
+    state: enabled
+  become: yes
