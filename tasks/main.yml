@@ -22,6 +22,7 @@
     enabled: true
 
 - name: Install Hugo dependencies
+  become: true
   community.general.snap:
     name:
       - dart-sass
