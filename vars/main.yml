@@ -1,2 +1,4 @@
 ---
 # vars file for devbox-role
+hugo:
+  version: 0.138.0
