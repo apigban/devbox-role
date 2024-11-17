@@ -89,8 +89,6 @@
     name: firewalld
     state: present
   become: yes
-  when:
-    - not is_lxc
 
 - name: Ensure firewalld is running and enabled
   ansible.builtin.service:
@@ -98,8 +96,6 @@
     state: started
     enabled: yes
   become: yes
-  when:
-    - not is_lxc
 
 - name: Allow TCP traffic on port 1313 (Hugo server)
   ansible.posix.firewalld:
@@ -108,5 +104,3 @@
     state: enabled
     immediate: true
   become: yes
-  when:
-    - not is_lxc  
